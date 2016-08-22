@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xd:acceleratorMap xmlns:xd="http://www.xilinx.com/xidane" xd:functionName="image_filter" xd:componentRef="image_filter" xd:initiationInterval="2124215" xd:clockPeriod="10.000000" xd:sequential="true" xd:hostMachine="64" xd:reset="control">
+  <xd:controlReg xd:name="control" xd:interfaceRef="S_AXI_CONTROL_BUS" xd:busTypeRef="axilite" xd:type="generic_axi_lite" xd:offset="0x0"/>
+  <xd:arg xd:name="INPUT_STREAM.data" xd:originalName="INPUT_STREAM" xd:direction="in" xd:interfaceRef="INPUT_STREAM" xd:busTypeRef="axis" xd:dataWidth="32"/>
+  <xd:arg xd:name="INPUT_STREAM.keep" xd:originalName="INPUT_STREAM" xd:direction="in" xd:interfaceRef="INPUT_STREAM" xd:busTypeRef="axis" xd:dataWidth="4"/>
+  <xd:arg xd:name="INPUT_STREAM.strb" xd:originalName="INPUT_STREAM" xd:direction="in" xd:interfaceRef="INPUT_STREAM" xd:busTypeRef="axis" xd:dataWidth="4"/>
+  <xd:arg xd:name="INPUT_STREAM.user" xd:originalName="INPUT_STREAM" xd:direction="in" xd:interfaceRef="INPUT_STREAM" xd:busTypeRef="axis" xd:dataWidth="1"/>
+  <xd:arg xd:name="INPUT_STREAM.last" xd:originalName="INPUT_STREAM" xd:direction="in" xd:interfaceRef="INPUT_STREAM" xd:busTypeRef="axis" xd:dataWidth="1"/>
+  <xd:arg xd:name="INPUT_STREAM.id" xd:originalName="INPUT_STREAM" xd:direction="in" xd:interfaceRef="INPUT_STREAM" xd:busTypeRef="axis" xd:dataWidth="1"/>
+  <xd:arg xd:name="INPUT_STREAM.dest" xd:originalName="INPUT_STREAM" xd:direction="in" xd:interfaceRef="INPUT_STREAM" xd:busTypeRef="axis" xd:dataWidth="1"/>
+  <xd:arg xd:name="OUTPUT_STREAM.data" xd:originalName="OUTPUT_STREAM" xd:direction="out" xd:interfaceRef="OUTPUT_STREAM" xd:busTypeRef="axis" xd:dataWidth="8"/>
+  <xd:arg xd:name="OUTPUT_STREAM.keep" xd:originalName="OUTPUT_STREAM" xd:direction="out" xd:interfaceRef="OUTPUT_STREAM" xd:busTypeRef="axis" xd:dataWidth="1"/>
+  <xd:arg xd:name="OUTPUT_STREAM.strb" xd:originalName="OUTPUT_STREAM" xd:direction="out" xd:interfaceRef="OUTPUT_STREAM" xd:busTypeRef="axis" xd:dataWidth="1"/>
+  <xd:arg xd:name="OUTPUT_STREAM.user" xd:originalName="OUTPUT_STREAM" xd:direction="out" xd:interfaceRef="OUTPUT_STREAM" xd:busTypeRef="axis" xd:dataWidth="1"/>
+  <xd:arg xd:name="OUTPUT_STREAM.last" xd:originalName="OUTPUT_STREAM" xd:direction="out" xd:interfaceRef="OUTPUT_STREAM" xd:busTypeRef="axis" xd:dataWidth="1"/>
+  <xd:arg xd:name="OUTPUT_STREAM.id" xd:originalName="OUTPUT_STREAM" xd:direction="out" xd:interfaceRef="OUTPUT_STREAM" xd:busTypeRef="axis" xd:dataWidth="1"/>
+  <xd:arg xd:name="OUTPUT_STREAM.dest" xd:originalName="OUTPUT_STREAM" xd:direction="out" xd:interfaceRef="OUTPUT_STREAM" xd:busTypeRef="axis" xd:dataWidth="1"/>
+  <xd:arg xd:name="rows" xd:originalName="rows" xd:direction="in" xd:interfaceRef="S_AXI_CONTROL_BUS" xd:busTypeRef="axilite" xd:offset="0x14" xd:handshakeRef="ap_none" xd:dataWidth="32"/>
+  <xd:arg xd:name="cols" xd:originalName="cols" xd:direction="in" xd:interfaceRef="S_AXI_CONTROL_BUS" xd:busTypeRef="axilite" xd:offset="0x1C" xd:handshakeRef="ap_none" xd:dataWidth="32"/>
+  <xd:latencyEstimates xd:best-case="141" xd:worst-case="2124214" xd:average-case="undef"/>
+  <xd:resourceEstimates xd:LUT="5523" xd:FF="5372" xd:BRAM="2" xd:DSP="19"/>
+</xd:acceleratorMap>

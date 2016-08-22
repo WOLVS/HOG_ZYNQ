@@ -1,0 +1,167 @@
+
+
+================================================================
+== Vivado HLS Report for 'image_filter'
+================================================================
+* Date:           Wed Jun 08 01:42:52 2016
+
+* Version:        2015.4 (Build 1412921 on Wed Nov 18 09:58:55 AM 2015)
+* Project:        gray2scale
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     11.12|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+---------+-----+---------+----------+
+    |    Latency    |    Interval   | Pipeline |
+    | min |   max   | min |   max   |   Type   |
+    +-----+---------+-----+---------+----------+
+    |  141|  2124214|  142|  2124215| dataflow |
+    +-----+---------+-----+---------+----------+
+
+    + Detail: 
+        * Instance: 
+        +------------------------------------------------------+-------------------------------------------+-----+---------+-----+---------+---------+
+        |                                                      |                                           |    Latency    |    Interval   | Pipeline|
+        |                       Instance                       |                   Module                  | min |   max   | min |   max   |   Type  |
+        +------------------------------------------------------+-------------------------------------------+-----+---------+-----+---------+---------+
+        |grp_image_filter_AXIvideo2Mat_fu_128                  |image_filter_AXIvideo2Mat                  |    3|  2077923|    3|  2077923|   none  |
+        |grp_image_filter_CvtColor_fu_151                      |image_filter_CvtColor                      |    1|  2080081|    1|  2080081|   none  |
+        |grp_image_filter_Resize_fu_120                        |image_filter_Resize                        |  141|  2124214|  141|  2124214|   none  |
+        |grp_image_filter_Mat2AXIvideo_8_1080_1920_0_s_fu_161  |image_filter_Mat2AXIvideo_8_1080_1920_0_s  |    1|  2076841|    1|  2076841|   none  |
+        +------------------------------------------------------+-------------------------------------------+-----+---------+-----+---------+---------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+-------+
+|       Name      | BRAM_18K| DSP48E|   FF   |  LUT  |
++-----------------+---------+-------+--------+-------+
+|DSP              |        -|      -|       -|      -|
+|Expression       |        -|      -|       0|      1|
+|FIFO             |        0|      -|      25|    100|
+|Instance         |        2|     19|    5342|   5422|
+|Memory           |        -|      -|       -|      -|
+|Multiplexer      |        -|      -|       -|      -|
+|Register         |        -|      -|       5|      -|
++-----------------+---------+-------+--------+-------+
+|Total            |        2|     19|    5372|   5523|
++-----------------+---------+-------+--------+-------+
+|Available        |      280|    220|  106400|  53200|
++-----------------+---------+-------+--------+-------+
+|Utilization (%)  |    ~0   |      8|       5|     10|
++-----------------+---------+-------+--------+-------+
+
++ Detail: 
+    * Instance: 
+    +--------------------------------------------+-------------------------------------------+---------+-------+------+------+
+    |                  Instance                  |                   Module                  | BRAM_18K| DSP48E|  FF  |  LUT |
+    +--------------------------------------------+-------------------------------------------+---------+-------+------+------+
+    |image_filter_AXIvideo2Mat_U0                |image_filter_AXIvideo2Mat                  |        0|      0|   236|   263|
+    |image_filter_CvtColor_U0                    |image_filter_CvtColor                      |        0|      3|   123|    77|
+    |image_filter_Mat2AXIvideo_8_1080_1920_0_U0  |image_filter_Mat2AXIvideo_8_1080_1920_0_s  |        0|      0|    44|    71|
+    |image_filter_Resize_U0                      |image_filter_Resize                        |        2|     16|  4939|  5011|
+    +--------------------------------------------+-------------------------------------------+---------+-------+------+------+
+    |Total                                       |                                           |        2|     19|  5342|  5422|
+    +--------------------------------------------+-------------------------------------------+---------+-------+------+------+
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    +-------------------------+---------+---+----+------+-----+---------+
+    |           Name          | BRAM_18K| FF| LUT| Depth| Bits| Size:D*B|
+    +-------------------------+---------+---+----+------+-----+---------+
+    |img_0_data_stream_0_V_U  |        0|  5|  20|     1|    8|        8|
+    |img_0_data_stream_1_V_U  |        0|  5|  20|     1|    8|        8|
+    |img_0_data_stream_2_V_U  |        0|  5|  20|     1|    8|        8|
+    |img_1_data_stream_0_V_U  |        0|  5|  20|     1|    8|        8|
+    |img_2_data_stream_0_V_U  |        0|  5|  20|     1|    8|        8|
+    +-------------------------+---------+---+----+------+-----+---------+
+    |Total                    |        0| 25| 100|     5|   40|       40|
+    +-------------------------+---------+---+----+------+-----+---------+
+
+    * Expression: 
+    +---------------------------------------+----------+-------+---+----+------------+------------+
+    |             Variable Name             | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +---------------------------------------+----------+-------+---+----+------------+------------+
+    |image_filter_AXIvideo2Mat_U0_ap_start  |    and   |      0|  0|   1|           1|           0|
+    +---------------------------------------+----------+-------+---+----+------------+------------+
+    |Total                                  |          |      0|  0|   1|           1|           0|
+    +---------------------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    N/A
+
+    * Register: 
+    +------------------------------------------------------------+---+----+-----+-----------+
+    |                            Name                            | FF| LUT| Bits| Const Bits|
+    +------------------------------------------------------------+---+----+-----+-----------+
+    |ap_CS                                                       |  1|   0|    1|          0|
+    |ap_reg_procdone_image_filter_AXIvideo2Mat_U0                |  1|   0|    1|          0|
+    |ap_reg_procdone_image_filter_CvtColor_U0                    |  1|   0|    1|          0|
+    |ap_reg_procdone_image_filter_Mat2AXIvideo_8_1080_1920_0_U0  |  1|   0|    1|          0|
+    |ap_reg_procdone_image_filter_Resize_U0                      |  1|   0|    1|          0|
+    +------------------------------------------------------------+---+----+-----+-----------+
+    |Total                                                       |  5|   0|    5|          0|
+    +------------------------------------------------------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++----------------------+-----+-----+------------+------------------------+--------------+
+|       RTL Ports      | Dir | Bits|  Protocol  |      Source Object     |    C Type    |
++----------------------+-----+-----+------------+------------------------+--------------+
+|INPUT_STREAM_TDATA    |  in |   32|    axis    |  INPUT_STREAM_V_data_V |    pointer   |
+|INPUT_STREAM_TKEEP    |  in |    4|    axis    |  INPUT_STREAM_V_keep_V |    pointer   |
+|INPUT_STREAM_TSTRB    |  in |    4|    axis    |  INPUT_STREAM_V_strb_V |    pointer   |
+|INPUT_STREAM_TUSER    |  in |    1|    axis    |  INPUT_STREAM_V_user_V |    pointer   |
+|INPUT_STREAM_TLAST    |  in |    1|    axis    |  INPUT_STREAM_V_last_V |    pointer   |
+|INPUT_STREAM_TID      |  in |    1|    axis    |   INPUT_STREAM_V_id_V  |    pointer   |
+|INPUT_STREAM_TDEST    |  in |    1|    axis    |  INPUT_STREAM_V_dest_V |    pointer   |
+|INPUT_STREAM_TVALID   |  in |    1|    axis    |  INPUT_STREAM_V_dest_V |    pointer   |
+|INPUT_STREAM_TREADY   | out |    1|    axis    |  INPUT_STREAM_V_dest_V |    pointer   |
+|OUTPUT_STREAM_TDATA   | out |    8|    axis    | OUTPUT_STREAM_V_data_V |    pointer   |
+|OUTPUT_STREAM_TKEEP   | out |    1|    axis    | OUTPUT_STREAM_V_keep_V |    pointer   |
+|OUTPUT_STREAM_TSTRB   | out |    1|    axis    | OUTPUT_STREAM_V_strb_V |    pointer   |
+|OUTPUT_STREAM_TUSER   | out |    1|    axis    | OUTPUT_STREAM_V_user_V |    pointer   |
+|OUTPUT_STREAM_TLAST   | out |    1|    axis    | OUTPUT_STREAM_V_last_V |    pointer   |
+|OUTPUT_STREAM_TID     | out |    1|    axis    |  OUTPUT_STREAM_V_id_V  |    pointer   |
+|OUTPUT_STREAM_TDEST   | out |    1|    axis    | OUTPUT_STREAM_V_dest_V |    pointer   |
+|OUTPUT_STREAM_TVALID  | out |    1|    axis    | OUTPUT_STREAM_V_dest_V |    pointer   |
+|OUTPUT_STREAM_TREADY  |  in |    1|    axis    | OUTPUT_STREAM_V_dest_V |    pointer   |
+|rows                  |  in |   32|  ap_stable |          rows          |    scalar    |
+|cols                  |  in |   32|  ap_stable |          cols          |    scalar    |
+|ap_clk                |  in |    1| ap_ctrl_hs |      image_filter      | return value |
+|ap_rst_n              |  in |    1| ap_ctrl_hs |      image_filter      | return value |
+|ap_start              |  in |    1| ap_ctrl_hs |      image_filter      | return value |
+|ap_done               | out |    1| ap_ctrl_hs |      image_filter      | return value |
+|ap_idle               | out |    1| ap_ctrl_hs |      image_filter      | return value |
+|ap_ready              | out |    1| ap_ctrl_hs |      image_filter      | return value |
++----------------------+-----+-----+------------+------------------------+--------------+
+

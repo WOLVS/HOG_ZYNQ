@@ -1,0 +1,202 @@
+
+
+================================================================
+== Vivado HLS Report for 'image_filter_AXIvideo2Mat'
+================================================================
+* Date:           Wed Jun 08 01:42:49 2016
+
+* Version:        2015.4 (Build 1412921 on Wed Nov 18 09:58:55 AM 2015)
+* Project:        gray2scale
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      4.38|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+---------+-----+---------+---------+
+    |    Latency    |    Interval   | Pipeline|
+    | min |   max   | min |   max   |   Type  |
+    +-----+---------+-----+---------+---------+
+    |    3|  2077923|    3|  2077923|   none  |
+    +-----+---------+-----+---------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-----------------------+-----+---------+----------+-----------+-----------+----------+----------+
+        |                       |    Latency    | Iteration|  Initiation Interval  |   Trip   |          |
+        |       Loop Name       | min |   max   |  Latency |  achieved |   target  |   Count  | Pipelined|
+        +-----------------------+-----+---------+----------+-----------+-----------+----------+----------+
+        |- loop_wait_for_start  |    0|        0|         1|          1|          1|         0|    yes   |
+        |- loop_height          |    0|  2077920| 4 ~ 1924 |          -|          -| 0 ~ 1080 |    no    |
+        | + loop_width          |    0|     1920|         2|          1|          1| 0 ~ 1920 |    yes   |
+        | + loop_wait_for_eol   |    0|        0|         1|          1|          1|         0|    yes   |
+        +-----------------------+-----+---------+----------+-----------+-----------+----------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+-------+
+|       Name      | BRAM_18K| DSP48E|   FF   |  LUT  |
++-----------------+---------+-------+--------+-------+
+|DSP              |        -|      -|       -|      -|
+|Expression       |        -|      -|       0|     39|
+|FIFO             |        -|      -|       -|      -|
+|Instance         |        -|      -|       -|      -|
+|Memory           |        -|      -|       -|      -|
+|Multiplexer      |        -|      -|       -|    224|
+|Register         |        -|      -|     236|      -|
++-----------------+---------+-------+--------+-------+
+|Total            |        0|      0|     236|    263|
++-----------------+---------+-------+--------+-------+
+|Available        |      280|    220|  106400|  53200|
++-----------------+---------+-------+--------+-------+
+|Utilization (%)  |        0|      0|   ~0   |   ~0  |
++-----------------+---------+-------+--------+-------+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +-----------------------+----------+-------+---+----+------------+------------+
+    |     Variable Name     | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-----------------------+----------+-------+---+----+------------+------------+
+    |i_V_fu_314_p2          |     +    |      0|  0|  11|          11|           1|
+    |j_V_fu_325_p2          |     +    |      0|  0|  11|          11|           1|
+    |ap_sig_bdd_117         |    and   |      0|  0|   1|           1|           1|
+    |ap_sig_bdd_118         |    and   |      0|  0|   1|           1|           1|
+    |ap_sig_bdd_142         |    and   |      0|  0|   1|           1|           1|
+    |ap_sig_bdd_161         |    and   |      0|  0|   1|           1|           1|
+    |ap_sig_bdd_209         |    and   |      0|  0|   1|           1|           1|
+    |ap_sig_bdd_224         |    and   |      0|  0|   1|           1|           1|
+    |exitcond8_i_fu_309_p2  |   icmp   |      0|  0|   4|          11|          11|
+    |exitcond9_i_fu_320_p2  |   icmp   |      0|  0|   4|          11|          11|
+    |ap_sig_bdd_131         |    or    |      0|  0|   1|           1|           1|
+    |ap_sig_bdd_73          |    or    |      0|  0|   1|           1|           1|
+    |brmerge_i_fu_334_p2    |    or    |      0|  0|   1|           1|           1|
+    +-----------------------+----------+-------+---+----+------------+------------+
+    |Total                  |          |      0|  0|  39|          53|          33|
+    +-----------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +------------------------------+----+-----------+-----+-----------+
+    |             Name             | LUT| Input Size| Bits| Total Bits|
+    +------------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm                     |   2|          8|    1|          8|
+    |axi_data_V1_i_reg_165         |  32|          2|   32|         64|
+    |axi_data_V_1_i_phi_fu_200_p4  |  32|          2|   32|         64|
+    |axi_data_V_1_i_reg_197        |  32|          2|   32|         64|
+    |axi_data_V_3_i_reg_268        |  32|          2|   32|         64|
+    |axi_last_V1_i_reg_155         |   1|          2|    1|          2|
+    |axi_last_V_2_i_reg_231        |   1|          3|    1|          3|
+    |axi_last_V_3_i_reg_256        |   1|          2|    1|          2|
+    |eol_2_i_reg_280               |   1|          2|    1|          2|
+    |eol_i_phi_fu_223_p4           |   1|          2|    1|          2|
+    |eol_i_reg_219                 |   1|          2|    1|          2|
+    |eol_phi_fu_189_p4             |   1|          2|    1|          2|
+    |eol_reg_186                   |   1|          2|    1|          2|
+    |p_2_i_reg_208                 |  11|          2|   11|         22|
+    |p_Val2_s_phi_fu_248_p4        |  32|          3|   32|         96|
+    |p_Val2_s_reg_244              |  32|          3|   32|         96|
+    |p_i_reg_175                   |  11|          2|   11|         22|
+    +------------------------------+----+-----------+-----+-----------+
+    |Total                         | 224|         43|  223|        517|
+    +------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +------------------------+----+----+-----+-----------+
+    |          Name          | FF | LUT| Bits| Const Bits|
+    +------------------------+----+----+-----+-----------+
+    |ap_CS_fsm               |   7|   0|    7|          0|
+    |ap_done_reg             |   1|   0|    1|          0|
+    |ap_reg_ppiten_pp1_it0   |   1|   0|    1|          0|
+    |ap_reg_ppiten_pp1_it1   |   1|   0|    1|          0|
+    |axi_data_V1_i_reg_165   |  32|   0|   32|          0|
+    |axi_data_V_1_i_reg_197  |  32|   0|   32|          0|
+    |axi_data_V_3_i_reg_268  |  32|   0|   32|          0|
+    |axi_last_V1_i_reg_155   |   1|   0|    1|          0|
+    |axi_last_V_2_i_reg_231  |   1|   0|    1|          0|
+    |axi_last_V_3_i_reg_256  |   1|   0|    1|          0|
+    |eol_2_i_reg_280         |   1|   0|    1|          0|
+    |eol_i_reg_219           |   1|   0|    1|          0|
+    |eol_reg_186             |   1|   0|    1|          0|
+    |exitcond9_i_reg_408     |   1|   0|    1|          0|
+    |i_V_reg_403             |  11|   0|   11|          0|
+    |p_2_i_reg_208           |  11|   0|   11|          0|
+    |p_Val2_s_reg_244        |  32|   0|   32|          0|
+    |p_i_reg_175             |  11|   0|   11|          0|
+    |sof_1_i_fu_100          |   1|   0|    1|          0|
+    |tmp_10_reg_426          |   8|   0|    8|          0|
+    |tmp_11_reg_431          |   8|   0|    8|          0|
+    |tmp_data_V_reg_379      |  32|   0|   32|          0|
+    |tmp_last_V_reg_387      |   1|   0|    1|          0|
+    |tmp_reg_421             |   8|   0|    8|          0|
+    +------------------------+----+----+-----+-----------+
+    |Total                   | 236|   0|  236|          0|
+    +------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++----------------------------+-----+-----+------------+---------------------------+--------------+
+|          RTL Ports         | Dir | Bits|  Protocol  |       Source Object       |    C Type    |
++----------------------------+-----+-----+------------+---------------------------+--------------+
+|ap_clk                      |  in |    1| ap_ctrl_hs | image_filter_AXIvideo2Mat | return value |
+|ap_rst                      |  in |    1| ap_ctrl_hs | image_filter_AXIvideo2Mat | return value |
+|ap_start                    |  in |    1| ap_ctrl_hs | image_filter_AXIvideo2Mat | return value |
+|ap_done                     | out |    1| ap_ctrl_hs | image_filter_AXIvideo2Mat | return value |
+|ap_continue                 |  in |    1| ap_ctrl_hs | image_filter_AXIvideo2Mat | return value |
+|ap_idle                     | out |    1| ap_ctrl_hs | image_filter_AXIvideo2Mat | return value |
+|ap_ready                    | out |    1| ap_ctrl_hs | image_filter_AXIvideo2Mat | return value |
+|INPUT_STREAM_TDATA          |  in |   32|    axis    |  AXI_video_strm_V_data_V  |    pointer   |
+|INPUT_STREAM_TVALID         |  in |    1|    axis    |  AXI_video_strm_V_data_V  |    pointer   |
+|INPUT_STREAM_TREADY         | out |    1|    axis    |  AXI_video_strm_V_dest_V  |    pointer   |
+|INPUT_STREAM_TDEST          |  in |    1|    axis    |  AXI_video_strm_V_dest_V  |    pointer   |
+|INPUT_STREAM_TKEEP          |  in |    4|    axis    |  AXI_video_strm_V_keep_V  |    pointer   |
+|INPUT_STREAM_TSTRB          |  in |    4|    axis    |  AXI_video_strm_V_strb_V  |    pointer   |
+|INPUT_STREAM_TUSER          |  in |    1|    axis    |  AXI_video_strm_V_user_V  |    pointer   |
+|INPUT_STREAM_TLAST          |  in |    1|    axis    |  AXI_video_strm_V_last_V  |    pointer   |
+|INPUT_STREAM_TID            |  in |    1|    axis    |   AXI_video_strm_V_id_V   |    pointer   |
+|rows                        |  in |   11|  ap_stable |            rows           |    scalar    |
+|cols                        |  in |   11|  ap_stable |            cols           |    scalar    |
+|img_data_stream_0_V_din     | out |    8|   ap_fifo  |    img_data_stream_0_V    |    pointer   |
+|img_data_stream_0_V_full_n  |  in |    1|   ap_fifo  |    img_data_stream_0_V    |    pointer   |
+|img_data_stream_0_V_write   | out |    1|   ap_fifo  |    img_data_stream_0_V    |    pointer   |
+|img_data_stream_1_V_din     | out |    8|   ap_fifo  |    img_data_stream_1_V    |    pointer   |
+|img_data_stream_1_V_full_n  |  in |    1|   ap_fifo  |    img_data_stream_1_V    |    pointer   |
+|img_data_stream_1_V_write   | out |    1|   ap_fifo  |    img_data_stream_1_V    |    pointer   |
+|img_data_stream_2_V_din     | out |    8|   ap_fifo  |    img_data_stream_2_V    |    pointer   |
+|img_data_stream_2_V_full_n  |  in |    1|   ap_fifo  |    img_data_stream_2_V    |    pointer   |
+|img_data_stream_2_V_write   | out |    1|   ap_fifo  |    img_data_stream_2_V    |    pointer   |
++----------------------------+-----+-----+------------+---------------------------+--------------+
+
